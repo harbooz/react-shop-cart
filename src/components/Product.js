@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useCart } from "react-use-cart";
+import { useNavigate } from "react-router-dom";
 
 const ProductItem = styled.div`
 display: flex;
@@ -59,8 +60,18 @@ cursor: pointer;
 border-radius: 4px;
 `;
 
+const DetailsButton = styled(CartButton)`
+background: #1c747b;
+color: #FFF;
+`
+
 function Product({ data }) {
   const { addItem } = useCart();
+  const nav = useNavigate();
+
+  const handleDetails = () => {
+    nav("/description/" + data.title);
+  }
 
   return (
     <ProductItem className="product__card">
@@ -70,6 +81,7 @@ function Product({ data }) {
       <h4>{data.title}</h4>
       <div className="product__footer">
       <div>{data.price} RON</div>
+      <DetailsButton onClick={handleDetails}>Details</DetailsButton>
       <CartButton onClick={() => addItem(data)}>Add to cart</CartButton>
       </div>
       

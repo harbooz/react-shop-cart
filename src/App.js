@@ -9,6 +9,7 @@ import AppContextProvider from "./context/AppContextProvider";
 import CartPage from "./pages/Cart";
 import Cart from "./components/Cart";
 import Searched from "./pages/Searched";
+import ProductDescription from "./pages/ProductDescription";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
               <Route path="/shop" element={<Shop />} />
               <Route path="/cart" element={<CartPage />} />
               <Route path="/searched/:searchTerm" element={<Searched />} />
+              <Route path="/description/:title" element={<ProductDescription/>} />
               <Route path="/contact" element={<Contact />} />
             </Routes>  
             <Cart/>        
