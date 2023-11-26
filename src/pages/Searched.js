@@ -73,11 +73,9 @@ border-radius: 4px;
 
 const Searched = () => {
   const { searchTerm } = useParams();
-  console.log('searchTerm:', searchTerm);
   const { addItem } = useCart(); 
 
   const filteredData = data.filter(item => item.title.toLowerCase().includes(searchTerm.toLowerCase()));
-  console.log('filteredData:', filteredData);
 
   return (
     <ContainerProducts>
